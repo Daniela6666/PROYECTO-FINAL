@@ -13,7 +13,7 @@ int main( int argc, char* agrv[] ){
     string sql;
 
     rc = sqlite3_open( "sensores.db", &db );
-
+    
     if( rc != 0 ){
         fprintf( stderr, "Can't open database: %s\n", sqlite3_errmsg(db) );
         return(1);
