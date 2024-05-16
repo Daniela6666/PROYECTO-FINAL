@@ -5,12 +5,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <sqlite3.h>
+#include <cmath>
 
 using namespace std;
 
 int main( int argc, char *argv[] ){
-    clock_t tiempo;
-    tiempo = clock();
+    clock_t inicio = clock(); 
+    double segundos_transcurridos;
 
     sqlite3 *db;
     char *zErrMsg = 0;
@@ -19,7 +20,7 @@ int main( int argc, char *argv[] ){
     sqlite3_stmt *stmt;
 
     /* Open database */
-    rc = sqlite3_open(argv[0], &db);
+    rc = sqlite3_open(argv[1], &db);
     int id_ejecucion = 0;
 
     /* Prepare SQL statement to get max_id_ejecucion */
@@ -44,7 +45,7 @@ int main( int argc, char *argv[] ){
     /* Close the database connection */
     sqlite3_close(db);
 
-    int _periodo = stoi(argv[1]);
+    int _periodo = stoi(argv[2]);
     Sensores temperatura( 1, {10, 45} );
     Sensores humedad( 2, {0, 100} );
     Sensores humedad_suelo( 3, {0, 100} );
@@ -53,8 +54,10 @@ int main( int argc, char *argv[] ){
     Sensores precipitacion( 6, {0, 200} );
     Sensores intensidad_luz( 7, {0, 4000} );
 
-    while( true ){
-        while( tiempo%_periodo == 0 ){
+    while (true) {
+        segundos_transcurridos = (clock() - inicio) / (double) CLOCKS_PER_SEC;
+
+        if ( fmod( segundos_transcurridos, static_cast<double>(_periodo) ) == 0){
             temperatura.trabajar_datos();
             humedad.trabajar_datos();
             humedad_suelo.trabajar_datos();
@@ -62,18 +65,19 @@ int main( int argc, char *argv[] ){
             direccion_viento.trabajar_datos();
             precipitacion.trabajar_datos();
             intensidad_luz.trabajar_datos();
-        }
-        while( tiempo%6000 == 0 ){
-            temperatura.introducir_db( argv[0], id_ejecucion );
-            humedad.introducir_db( argv[0], id_ejecucion );
-            humedad_suelo.introducir_db( argv[0], id_ejecucion );
-            velocidad.introducir_db( argv[0], id_ejecucion );
-            direccion_viento.introducir_db( argv[0], id_ejecucion );
-            precipitacion.introducir_db( argv[0], id_ejecucion );
-            intensidad_luz.introducir_db( argv[0], id_ejecucion );
-        }
-    }
-    //hacer un try catch si cierran el programa
+            }
 
+        if ( fmod( segundos_transcurridos, 60.0 ) == 0 ){ //60.0
+            cout << "Introducir" << endl;
+            temperatura.introducir_db( argv[1], id_ejecucion );
+            humedad.introducir_db( argv[1], id_ejecucion );
+            humedad_suelo.introducir_db( argv[1], id_ejecucion );
+            velocidad.introducir_db( argv[1], id_ejecucion );
+            direccion_viento.introducir_db( argv[1], id_ejecucion );
+            precipitacion.introducir_db( argv[1], id_ejecucion );
+            intensidad_luz.introducir_db( argv[1], id_ejecucion );
+            }
+
+        }
     return 0;
 }

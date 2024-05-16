@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <sqlite3.h>
+#include <iostream>
 
 using namespace std;
 
@@ -24,6 +25,7 @@ int Sensores::generar_aleatorio_entero(){
 
 void Sensores::trabajar_datos(){
     int dato =  generar_aleatorio_entero();
+    cout << dato << endl;
     acumulado_medidas = acumulado_medidas + dato;
     cont_datos = cont_datos + 1;
     if( dato < menor ){
@@ -43,10 +45,13 @@ void Sensores::introducir_db( char* _db, int _id_ejecucion ){
     /* Open database */
     rc = sqlite3_open( _db , &db);
 
-    /* Create SQL statement */
-    sql = "INSERT INTO mediciones (id_ejecucion, id_sensor, minimo, maximo, promedio)"\
-    "VALUES (" +to_string(_id_ejecucion)+ "," +to_string(id)+ "," +to_string(menor)+ "," +to_string(mayor)+ "," +to_string(acumulado_medidas/cont_datos)+ ")";
+    if( rc ) {
+      fprintf(stderr, "Can't open database: %s\n", sqlite3_errmsg(db));
+    }
 
+    /* Create SQL statement */
+    sql = "INSERT INTO Mediciones (id_ejecucion, id_sensor, minimo, maximo, promedio) "\
+    "VALUES (" + to_string(_id_ejecucion) + ", " + to_string(id) + ", " + to_string(menor) + ", " + to_string(mayor) + ", " + to_string(acumulado_medidas / cont_datos) + ");";
     /* Execute SQL statement */
     rc = sqlite3_exec(db, sql.c_str(), 0, 0, &zErrMsg);
    
