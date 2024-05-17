@@ -10,7 +10,6 @@ class Sensores{
     int cont_datos;
     int mayor;
     int menor;
-    int tipo; //1 si es entero, 2 si es flotante
     public:
     Sensores();
     Sensores( int _id, pair<int, int> _intervalo );
