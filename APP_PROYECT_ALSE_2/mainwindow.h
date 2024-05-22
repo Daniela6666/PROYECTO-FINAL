@@ -10,7 +10,13 @@
 #include <QFile>
 #include <QLineEdit>
 #include <array>
+#include <ctime>
+#include <QString>
+#include <sstream>
+#include <string>
+#include <cstring>
 
+using namespace std;
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -27,7 +33,13 @@ public:
 public slots:
     void tiempo();
     void abrir_db();
+
+    const char* consultar_hora();
+    int restar_fechas( const unsigned char* fecha_y_hora_anterior );
+
+
     void consultarValor(const QString &campo, QLineEdit *lineEdit);
+
 
 signals:
     void minutoIncrementado();
@@ -35,9 +47,13 @@ signals:
 private:
     Ui::MainWindow *ui;
     QTimer *timer;
+    std::tm fecha_hora;
+    std::string fecha_str;
     QSqlDatabase db;
     short int segundos;
     short int minutos;
+    double minutos_transcurridos;
+
     int id;
     int id_sensor;
     std::array<QLineEdit*, 21> lineEdits;

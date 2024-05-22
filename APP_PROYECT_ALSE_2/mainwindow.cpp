@@ -7,11 +7,29 @@ MainWindow::MainWindow(QWidget *parent)
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
     timer =  new QTimer(this);
-    connect(timer, SIGNAL( timeout() ), this, SLOT(tiempo()));
-    segundos = 0;
-    minutos = 0;
-    timer -> start(1000);
+        connect(timer, SIGNAL( timeout() ), this, SLOT(tiempo()));
+
+        abrir_db();
+        fecha_hora = {};
+
+        const char* fecha_y_hora_anterior = consultar_hora();
+        if (fecha_y_hora_anterior != nullptr) {
+            int totalSegundos = restar_fechas(reinterpret_cast<const unsigned char*>(fecha_y_hora_anterior));
+
+            minutos = totalSegundos / 60;
+            segundos = totalSegundos % 60;
+
+            ui->segundos->display(segundos);
+            ui->minutos->display(minutos);
+        } else {
+            // Si no se pudo obtener la hora anterior, iniciar desde cero
+            segundos = 0;
+            minutos = 0;
+        }
+
+        timer->start(1000);
 
     lineEdits[0] = ui->MIN_temp;
     lineEdits[1] = ui->MIN_hum;
@@ -48,7 +66,7 @@ MainWindow::MainWindow(QWidget *parent)
     id = 1;
     id_sensor = 1;
 
-    abrir_db();
+    abrir_db();    
 
 }
 
@@ -56,6 +74,8 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
+
+
 
 void MainWindow::tiempo()
 {
@@ -73,9 +93,11 @@ void MainWindow::tiempo()
     }
 }
 
+
+
 void MainWindow::abrir_db()
 {
-    QString dbPath = "/home/sebastian/proyect_ALSE/PROYECTO-FINAL/APP_grafica_ALSE/sensores.db";  // Ajusta esto a la ruta absoluta correcta
+    QString dbPath = "/home/sebastian/proyect_ALSE/PROYECTO-FINAL/app_consola/build/sensores.db";
 
        // Verifica si el archivo de la base de datos existe
        if (!QFile::exists(dbPath)) {
@@ -95,7 +117,71 @@ void MainWindow::abrir_db()
            qDebug() << db.lastError().text();
            return;
        }
+       else{
+           qDebug() << "La base de datos está abierta.";
+       }
 }
+
+const char* MainWindow::consultar_hora() {
+    QString consulta = QString("SELECT fecha_y_hora_de_ejecucion FROM datos WHERE id_ejecucion = :id");
+    QSqlQuery consultar;
+    consultar.prepare(consulta);
+
+    consultar.bindValue(":id", 1); // Asumiendo que estamos buscando el registro con id = 1.
+
+    if (!consultar.exec()) {
+        qDebug() << "No se ha consultado correctamente.";
+        qDebug() << "ERROR! " << consultar.lastError();
+        return nullptr; // Retornar nullptr en caso de error
+    }
+
+    if (consultar.next()) {
+        QString fechaStr = consultar.value(0).toString();
+        qDebug() << "Fecha y hora obtenida de la base de datos: " << fechaStr;
+
+        // Convertir QString a std::string y almacenarlo en la variable miembro
+        fecha_str = fechaStr.toStdString();
+
+        // Retornar un puntero a los datos del std::string
+        return fecha_str.c_str();
+    }
+
+    return nullptr; // Retornar nullptr si no se encontró el registro
+}
+
+int MainWindow::restar_fechas(const unsigned char* fecha_y_hora_anterior) {
+    time_t marca_tiempo = time(nullptr);
+    string fecha_y_hora = ctime(&marca_tiempo);
+
+    char hora1[9];
+    strncpy(hora1, reinterpret_cast<const char*>(fecha_y_hora_anterior) + 11, 8);
+    hora1[8] = '\0';
+
+    char hora2[9];
+    strncpy(hora2, fecha_y_hora.c_str() + 11, 8);
+    hora2[8] = '\0';
+
+    int h1, m1, s1;
+    sscanf(hora1, "%d:%d:%d", &h1, &m1, &s1);
+
+    int h2, m2, s2;
+    sscanf(hora2, "%d:%d:%d", &h2, &m2, &s2);
+
+    int difHoras = h2 - h1;
+    int difMinutos = m2 - m1;
+    int difSegundos = s2 - s1;
+
+    // Convertir todo a segundos
+    int totalSegundos = (difHoras * 3600) + (difMinutos * 60) + difSegundos;
+
+    // Asegurarse de que los segundos no sean negativos
+    if (totalSegundos < 0) {
+        totalSegundos += 24 * 3600; // Añadir un día en segundos si la diferencia es negativa
+    }
+
+    return totalSegundos;
+}
+
 
 void MainWindow::consultarValor(const QString &campo, QLineEdit *lineEdit)
 {
@@ -131,3 +217,4 @@ void MainWindow::consultarValor(const QString &campo, QLineEdit *lineEdit)
         contador = 0;
     }
 }
+
