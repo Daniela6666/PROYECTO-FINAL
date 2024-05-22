@@ -1,0 +1,4 @@
+/home/sebastian/proyect_ALSE/PROYECTO-FINAL/build-APP_PROYECT_ALSE_2-Desktop-Debug/CMakeFiles/APP_PROYECT_ALSE_2.dir
+/home/sebastian/proyect_ALSE/PROYECTO-FINAL/build-APP_PROYECT_ALSE_2-Desktop-Debug/CMakeFiles/edit_cache.dir
+/home/sebastian/proyect_ALSE/PROYECTO-FINAL/build-APP_PROYECT_ALSE_2-Desktop-Debug/CMakeFiles/rebuild_cache.dir
+/home/sebastian/proyect_ALSE/PROYECTO-FINAL/build-APP_PROYECT_ALSE_2-Desktop-Debug/CMakeFiles/APP_PROYECT_ALSE_2_autogen.dir
