@@ -1,0 +1,3 @@
+/home/daniela/PROYECTO-FINAL/app_consola/build/CMakeFiles/ejecutable_consola.dir
+/home/daniela/PROYECTO-FINAL/app_consola/build/CMakeFiles/edit_cache.dir
+/home/daniela/PROYECTO-FINAL/app_consola/build/CMakeFiles/rebuild_cache.dir

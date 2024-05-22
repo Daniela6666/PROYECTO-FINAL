@@ -132,7 +132,7 @@ void cerrar( int signal ) {
  */
 int main( int argc, char *argv[] ){ 
 
-    if( stoi(argv[2]) < 5 || stoi(argv[2]) > 12 ){
+    if( stoi(argv[2]) < 5 || stoi(argv[2]) > 20 ){
         cout << "ERROR: You must introduce a period value between 5 and 12.\nClosing app..." << endl;
         return 0;
     }
