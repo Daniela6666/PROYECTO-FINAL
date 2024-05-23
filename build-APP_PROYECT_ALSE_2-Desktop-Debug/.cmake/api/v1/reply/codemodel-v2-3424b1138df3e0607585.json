@@ -1,0 +1,69 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.5"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "APP_PROYECT_ALSE_2",
+					"targetIndexes" : 
+					[
+						0,
+						1
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "APP_PROYECT_ALSE_2::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-APP_PROYECT_ALSE_2-Debug-3b9ed223e18a2d7a097c.json",
+					"name" : "APP_PROYECT_ALSE_2",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "APP_PROYECT_ALSE_2_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-APP_PROYECT_ALSE_2_autogen-Debug-a0bd3d2684bbe25226a0.json",
+					"name" : "APP_PROYECT_ALSE_2_autogen",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/sebastian/proyect_ALSE/PROYECTO-FINAL/build-APP_PROYECT_ALSE_2-Desktop-Debug",
+		"source" : "/home/sebastian/proyect_ALSE/PROYECTO-FINAL/APP_PROYECT_ALSE_2"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}
