@@ -9,27 +9,10 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
 
     timer =  new QTimer(this);
-        connect(timer, SIGNAL( timeout() ), this, SLOT(tiempo()));
+      connect(timer, SIGNAL( timeout() ), this, SLOT(tiempo()));
 
-        abrir_db();
-        fecha_hora = {};
-
-        const char* fecha_y_hora_anterior = consultar_hora();
-        if (fecha_y_hora_anterior != nullptr) {
-            int totalSegundos = restar_fechas(reinterpret_cast<const unsigned char*>(fecha_y_hora_anterior));
-
-            minutos = totalSegundos / 60;
-            segundos = totalSegundos % 60;
-
-            ui->segundos->display(segundos);
-            ui->minutos->display(minutos);
-        } else {
-            // Si no se pudo obtener la hora anterior, iniciar desde cero
-            segundos = 0;
-            minutos = 0;
-        }
-
-        timer->start(1000);
+    abrir_db();
+    fecha_hora = {};
 
     lineEdits[0] = ui->MIN_temp;
     lineEdits[1] = ui->MIN_hum;
@@ -62,8 +45,36 @@ MainWindow::MainWindow(QWidget *parent)
             connect(this, &MainWindow::minutoIncrementado, this, [=]() { consultarValor("promedio", lineEdits[i + 14]); });
         }
 
+    const char* fecha_y_hora_anterior = consultar_hora();
+    if (fecha_y_hora_anterior != nullptr) {
+        int totalSegundos = restar_fechas(reinterpret_cast<const unsigned char*>(fecha_y_hora_anterior));
 
-    id = 1;
+        minutos = totalSegundos / 60;
+        segundos = (totalSegundos % 60)-1;
+
+        if (minutos > 1){
+            id = ((minutos * 7)+1)-7;
+        }
+        else{
+            id = 1;
+        }
+
+        ui->segundos->display(segundos + 1);
+        ui->minutos->display(minutos);
+
+        if (minutos != 0) {
+                    emit minutoIncrementado();
+                }
+    } else {
+        // Si no se pudo obtener la hora anterior, iniciar desde cero
+        segundos = 0;
+        minutos = 0;
+        id = 1;
+    }
+
+    timer->start(1000);
+
+
     id_sensor = 1;
 
     abrir_db();    
@@ -98,6 +109,12 @@ void MainWindow::tiempo()
 void MainWindow::abrir_db()
 {
     QString dbPath = "/home/sebastian/proyect_ALSE/PROYECTO-FINAL/app_consola/build/sensores.db";
+
+        // Verifica si la conexión ya existe
+        if (QSqlDatabase::contains(QSqlDatabase::defaultConnection)) {
+            qDebug() << "La conexión predeterminada de la base de datos ya existe.";
+            return;
+        }
 
        // Verifica si el archivo de la base de datos existe
        if (!QFile::exists(dbPath)) {
@@ -213,6 +230,7 @@ void MainWindow::consultarValor(const QString &campo, QLineEdit *lineEdit)
     contador++;
     if (contador == 3) { // Si hemos actualizado todos los QLineEdit correspondientes al "mínimo"
         id += 1;
+        qDebug() << id;
         id_sensor += 1;
         contador = 0;
     }
