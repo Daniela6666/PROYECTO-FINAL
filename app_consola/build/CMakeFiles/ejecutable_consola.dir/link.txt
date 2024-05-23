@@ -1,1 +1,0 @@
-/usr/bin/c++ -rdynamic CMakeFiles/ejecutable_consola.dir/src/control_db.cpp.o CMakeFiles/ejecutable_consola.dir/src/main.cpp.o CMakeFiles/ejecutable_consola.dir/src/sensor.cpp.o -o ejecutable_consola  -lsqlite3 

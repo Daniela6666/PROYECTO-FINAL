@@ -22,8 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MainWindow_t {
-    QByteArrayData data[14];
-    char stringdata0[172];
+    QByteArrayData data[16];
+    char stringdata0[216];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -45,14 +45,17 @@ QT_MOC_LITERAL(9, 109, 21), // "fecha_y_hora_anterior"
 QT_MOC_LITERAL(10, 131, 14), // "consultarValor"
 QT_MOC_LITERAL(11, 146, 5), // "campo"
 QT_MOC_LITERAL(12, 152, 10), // "QLineEdit*"
-QT_MOC_LITERAL(13, 163, 8) // "lineEdit"
+QT_MOC_LITERAL(13, 163, 8), // "lineEdit"
+QT_MOC_LITERAL(14, 172, 21), // "mostrarDatosIniciales"
+QT_MOC_LITERAL(15, 194, 21) // "consultarValorInicial"
 
     },
     "MainWindow\0minutoIncrementado\0\0tiempo\0"
     "abrir_db\0consultar_hora\0const char*\0"
     "restar_fechas\0const unsigned char*\0"
     "fecha_y_hora_anterior\0consultarValor\0"
-    "campo\0QLineEdit*\0lineEdit"
+    "campo\0QLineEdit*\0lineEdit\0"
+    "mostrarDatosIniciales\0consultarValorInicial"
 };
 #undef QT_MOC_LITERAL
 
@@ -62,7 +65,7 @@ static const uint qt_meta_data_MainWindow[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-       6,   14, // methods
+       8,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -70,14 +73,16 @@ static const uint qt_meta_data_MainWindow[] = {
        1,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    0,   44,    2, 0x06 /* Public */,
+       1,    0,   54,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       3,    0,   45,    2, 0x0a /* Public */,
-       4,    0,   46,    2, 0x0a /* Public */,
-       5,    0,   47,    2, 0x0a /* Public */,
-       7,    1,   48,    2, 0x0a /* Public */,
-      10,    2,   51,    2, 0x0a /* Public */,
+       3,    0,   55,    2, 0x0a /* Public */,
+       4,    0,   56,    2, 0x0a /* Public */,
+       5,    0,   57,    2, 0x0a /* Public */,
+       7,    1,   58,    2, 0x0a /* Public */,
+      10,    2,   61,    2, 0x0a /* Public */,
+      14,    0,   66,    2, 0x0a /* Public */,
+      15,    2,   67,    2, 0x0a /* Public */,
 
  // signals: parameters
     QMetaType::Void,
@@ -87,6 +92,8 @@ static const uint qt_meta_data_MainWindow[] = {
     QMetaType::Void,
     0x80000000 | 6,
     QMetaType::Int, 0x80000000 | 8,    9,
+    QMetaType::Void, QMetaType::QString, 0x80000000 | 12,   11,   13,
+    QMetaType::Void,
     QMetaType::Void, QMetaType::QString, 0x80000000 | 12,   11,   13,
 
        0        // eod
@@ -106,12 +113,20 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 4: { int _r = _t->restar_fechas((*reinterpret_cast< const unsigned char*(*)>(_a[1])));
             if (_a[0]) *reinterpret_cast< int*>(_a[0]) = std::move(_r); }  break;
         case 5: _t->consultarValor((*reinterpret_cast< const QString(*)>(_a[1])),(*reinterpret_cast< QLineEdit*(*)>(_a[2]))); break;
+        case 6: _t->mostrarDatosIniciales(); break;
         default: ;
         }
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
         switch (_id) {
         default: *reinterpret_cast<int*>(_a[0]) = -1; break;
         case 5:
+            switch (*reinterpret_cast<int*>(_a[1])) {
+            default: *reinterpret_cast<int*>(_a[0]) = -1; break;
+            case 1:
+                *reinterpret_cast<int*>(_a[0]) = qRegisterMetaType< QLineEdit* >(); break;
+            }
+            break;
+        case 7:
             switch (*reinterpret_cast<int*>(_a[1])) {
             default: *reinterpret_cast<int*>(_a[0]) = -1; break;
             case 1:
@@ -160,13 +175,13 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 6)
+        if (_id < 8)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 6;
+        _id -= 8;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 6)
+        if (_id < 8)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 6;
+        _id -= 8;
     }
     return _id;
 }

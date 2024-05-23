@@ -39,6 +39,7 @@ public slots:
 
 
     void consultarValor(const QString &campo, QLineEdit *lineEdit);
+    void mostrarDatosIniciales();
 
 
 signals:

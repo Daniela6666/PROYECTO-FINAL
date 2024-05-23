@@ -9,7 +9,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
 
     timer =  new QTimer(this);
-      connect(timer, SIGNAL( timeout() ), this, SLOT(tiempo()));
+    connect(timer, SIGNAL( timeout() ), this, SLOT(tiempo()));
 
     abrir_db();
     fecha_hora = {};
@@ -38,13 +38,6 @@ MainWindow::MainWindow(QWidget *parent)
     lineEdits[19] = ui->PR_pre;
     lineEdits[20] = ui->PR_in;
 
-    // Conectar la señal minutoIncrementado a la ranura consultarMinimo
-    for (int i = 0; i < 7; ++i) {
-            connect(this, &MainWindow::minutoIncrementado, this, [=]() { consultarValor("minimo", lineEdits[i]); });
-            connect(this, &MainWindow::minutoIncrementado, this, [=]() { consultarValor("maximo", lineEdits[i + 7]); });
-            connect(this, &MainWindow::minutoIncrementado, this, [=]() { consultarValor("promedio", lineEdits[i + 14]); });
-        }
-
     const char* fecha_y_hora_anterior = consultar_hora();
     if (fecha_y_hora_anterior != nullptr) {
         int totalSegundos = restar_fechas(reinterpret_cast<const unsigned char*>(fecha_y_hora_anterior));
@@ -61,10 +54,6 @@ MainWindow::MainWindow(QWidget *parent)
 
         ui->segundos->display(segundos + 1);
         ui->minutos->display(minutos);
-
-        if (minutos != 0) {
-                    emit minutoIncrementado();
-                }
     } else {
         // Si no se pudo obtener la hora anterior, iniciar desde cero
         segundos = 0;
@@ -74,11 +63,17 @@ MainWindow::MainWindow(QWidget *parent)
 
     timer->start(1000);
 
+    // Conectar la señal minutoIncrementado a la ranura consultarMinimo
+    for (int i = 0; i < 7; ++i) {
+            connect(this, &MainWindow::minutoIncrementado, this, [=]() { consultarValor("minimo", lineEdits[i]); });
+            connect(this, &MainWindow::minutoIncrementado, this, [=]() { consultarValor("maximo", lineEdits[i + 7]); });
+            connect(this, &MainWindow::minutoIncrementado, this, [=]() { consultarValor("promedio", lineEdits[i + 14]); });
+        }
+
 
     id_sensor = 1;
 
-    abrir_db();    
-
+    mostrarDatosIniciales();
 }
 
 MainWindow::~MainWindow()
@@ -103,7 +98,6 @@ void MainWindow::tiempo()
         ui -> minutos -> display(minutos);
     }
 }
-
 
 
 void MainWindow::abrir_db()
@@ -139,6 +133,7 @@ void MainWindow::abrir_db()
        }
 }
 
+
 const char* MainWindow::consultar_hora() {
     QString consulta = QString("SELECT fecha_y_hora_de_ejecucion FROM datos WHERE id_ejecucion = :id");
     QSqlQuery consultar;
@@ -165,6 +160,7 @@ const char* MainWindow::consultar_hora() {
 
     return nullptr; // Retornar nullptr si no se encontró el registro
 }
+
 
 int MainWindow::restar_fechas(const unsigned char* fecha_y_hora_anterior) {
     time_t marca_tiempo = time(nullptr);
@@ -236,3 +232,11 @@ void MainWindow::consultarValor(const QString &campo, QLineEdit *lineEdit)
     }
 }
 
+void MainWindow::mostrarDatosIniciales()
+{
+    for (int i = 0; i < 7; ++i) {
+        consultarValor("minimo", lineEdits[i]);
+        consultarValor("maximo", lineEdits[i + 7]);
+        consultarValor("promedio", lineEdits[i + 14]);
+    }
+}
