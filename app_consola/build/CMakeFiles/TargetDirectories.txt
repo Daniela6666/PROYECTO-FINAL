@@ -1,0 +1,3 @@
+/home/sebastian/proyect_ALSE/PROYECTO-FINAL/app_consola/build/CMakeFiles/ejecutable_consola.dir
+/home/sebastian/proyect_ALSE/PROYECTO-FINAL/app_consola/build/CMakeFiles/edit_cache.dir
+/home/sebastian/proyect_ALSE/PROYECTO-FINAL/app_consola/build/CMakeFiles/rebuild_cache.dir

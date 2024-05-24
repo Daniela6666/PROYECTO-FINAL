@@ -54,6 +54,7 @@ MainWindow::MainWindow(QWidget *parent)
 
         ui->segundos->display(segundos + 1);
         ui->minutos->display(minutos);
+
     } else {
         // Si no se pudo obtener la hora anterior, iniciar desde cero
         segundos = 0;
@@ -102,7 +103,7 @@ void MainWindow::tiempo()
 
 void MainWindow::abrir_db()
 {
-    QString dbPath = "/home/sebastian/proyect_ALSE/PROYECTO-FINAL/app_consola/build/sensores.db";
+    QString dbPath = "/home/daniela/proyect_ALSE/PROYECTO-FINAL/app_consola/build/sensores.db";
 
         // Verifica si la conexión ya existe
         if (QSqlDatabase::contains(QSqlDatabase::defaultConnection)) {
@@ -240,3 +241,6 @@ void MainWindow::mostrarDatosIniciales()
         consultarValor("promedio", lineEdits[i + 14]);
     }
 }
+
+
+//hola
