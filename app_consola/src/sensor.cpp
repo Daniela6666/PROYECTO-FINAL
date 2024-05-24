@@ -37,7 +37,7 @@ void Sensor::trabajar_datos(){
 
 string Sensor::introducir_datos_db( int _id_ejecucion ){
     string sql = "INSERT INTO Mediciones (id_ejecucion, id_sensor, minimo, maximo, promedio)"\
-    "VALUES (" +to_string( _id_ejecucion )+ "," +to_string( id )+ "," +to_string( menor_medida )+ "," +to_string( mayor_medida)+ "," +to_string( acumulado_medidas/cont_medidas )+ ");";
+    "VALUES (" +to_string( _id_ejecucion )+ "," +to_string( id )+ "," +to_string( menor_medida )+ "," +to_string( mayor_medida)+ "," +to_string( static_cast<float>(acumulado_medidas)/cont_medidas )+ ");";
     acumulado_medidas = 0;
     mayor_medida = intervalo.first;
     menor_medida = intervalo.second;
