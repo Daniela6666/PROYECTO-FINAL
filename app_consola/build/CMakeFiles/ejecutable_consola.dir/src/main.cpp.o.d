@@ -1,7 +1,7 @@
 CMakeFiles/ejecutable_consola.dir/src/main.cpp.o: \
- /home/daniela/PROYECTO-FINAL/app_consola/src/main.cpp \
+ /home/daniela/proyect_ALSE/PROYECTO-FINAL/app_consola/src/main.cpp \
  /usr/include/stdc-predef.h \
- /home/daniela/PROYECTO-FINAL/app_consola/include/sensor.h \
+ /home/daniela/proyect_ALSE/PROYECTO-FINAL/app_consola/include/sensor.h \
  /usr/include/c++/11/string \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
@@ -130,7 +130,7 @@ CMakeFiles/ejecutable_consola.dir/src/main.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/types/error_t.h \
  /usr/include/c++/11/bits/charconv.h \
  /usr/include/c++/11/bits/basic_string.tcc \
- /home/daniela/PROYECTO-FINAL/app_consola/include/control_db.h \
+ /home/daniela/proyect_ALSE/PROYECTO-FINAL/app_consola/include/control_db.h \
  /usr/include/c++/11/stdlib.h /usr/include/sqlite3.h \
  /usr/include/c++/11/ctime /usr/include/c++/11/csignal \
  /usr/include/signal.h \

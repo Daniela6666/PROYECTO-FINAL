@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/daniela/PROYECTO-FINAL/app_consola/include
+CXX_INCLUDES = -I/home/daniela/proyect_ALSE/PROYECTO-FINAL/app_consola/include
 
 CXX_FLAGS = 
 

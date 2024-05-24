@@ -1,7 +1,7 @@
 CMakeFiles/ejecutable_consola.dir/src/sensor.cpp.o: \
- /home/daniela/PROYECTO-FINAL/app_consola/src/sensor.cpp \
+ /home/daniela/proyect_ALSE/PROYECTO-FINAL/app_consola/src/sensor.cpp \
  /usr/include/stdc-predef.h \
- /home/daniela/PROYECTO-FINAL/app_consola/include/sensor.h \
+ /home/daniela/proyect_ALSE/PROYECTO-FINAL/app_consola/include/sensor.h \
  /usr/include/c++/11/string \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \

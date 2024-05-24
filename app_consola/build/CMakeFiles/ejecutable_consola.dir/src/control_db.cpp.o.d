@@ -1,7 +1,7 @@
 CMakeFiles/ejecutable_consola.dir/src/control_db.cpp.o: \
- /home/daniela/PROYECTO-FINAL/app_consola/src/control_db.cpp \
+ /home/daniela/proyect_ALSE/PROYECTO-FINAL/app_consola/src/control_db.cpp \
  /usr/include/stdc-predef.h \
- /home/daniela/PROYECTO-FINAL/app_consola/include/control_db.h \
+ /home/daniela/proyect_ALSE/PROYECTO-FINAL/app_consola/include/control_db.h \
  /usr/include/c++/11/string \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \

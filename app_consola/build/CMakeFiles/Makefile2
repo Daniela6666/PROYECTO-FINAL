@@ -54,10 +54,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/daniela/PROYECTO-FINAL/app_consola
+CMAKE_SOURCE_DIR = /home/daniela/proyect_ALSE/PROYECTO-FINAL/app_consola
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/daniela/PROYECTO-FINAL/app_consola/build
+CMAKE_BINARY_DIR = /home/daniela/proyect_ALSE/PROYECTO-FINAL/app_consola/build
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -81,14 +81,14 @@ clean: CMakeFiles/ejecutable_consola.dir/clean
 CMakeFiles/ejecutable_consola.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ejecutable_consola.dir/build.make CMakeFiles/ejecutable_consola.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ejecutable_consola.dir/build.make CMakeFiles/ejecutable_consola.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/daniela/PROYECTO-FINAL/app_consola/build/CMakeFiles --progress-num=1,2,3,4 "Built target ejecutable_consola"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/daniela/proyect_ALSE/PROYECTO-FINAL/app_consola/build/CMakeFiles --progress-num=1,2,3,4 "Built target ejecutable_consola"
 .PHONY : CMakeFiles/ejecutable_consola.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/ejecutable_consola.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/daniela/PROYECTO-FINAL/app_consola/build/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/daniela/proyect_ALSE/PROYECTO-FINAL/app_consola/build/CMakeFiles 4
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/ejecutable_consola.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/daniela/PROYECTO-FINAL/app_consola/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/daniela/proyect_ALSE/PROYECTO-FINAL/app_consola/build/CMakeFiles 0
 .PHONY : CMakeFiles/ejecutable_consola.dir/rule
 
 # Convenience name for target.
