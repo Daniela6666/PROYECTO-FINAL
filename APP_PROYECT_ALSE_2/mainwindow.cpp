@@ -85,7 +85,9 @@ MainWindow::~MainWindow()
 }
 
 
-
+/**
+ * @brief Method to update the time in the interface.
+*/
 void MainWindow::tiempo()
 {
     //qDebug() << "update..";
@@ -102,7 +104,9 @@ void MainWindow::tiempo()
     }
 }
 
-
+/**
+ * @brief Method to open the database.
+*/
 void MainWindow::abrir_db()
 {
     // Obtener el directorio de inicio del usuario
@@ -143,7 +147,10 @@ void MainWindow::abrir_db()
        }
 }
 
-
+/**
+ * @brief Method to check the current time.
+ * @return The current time in const char* format.
+*/
 const char* MainWindow::consultar_hora() {
     QString consulta = QString("SELECT fecha_y_hora_de_ejecucion FROM datos WHERE id_ejecucion = :id");
     QSqlQuery consultar;
@@ -171,7 +178,11 @@ const char* MainWindow::consultar_hora() {
     return nullptr; // Retornar nullptr si no se encontró el registro
 }
 
-
+/**
+ * @brief Method to calculate the time difference between the current date and time and a previous date and time.
+ * @param previous_date_and_time The previous date and time in const unsigned char* format.
+ * @return The time in total seconds.
+*/
 int MainWindow::restar_fechas(const unsigned char* fecha_y_hora_anterior) {
     time_t marca_tiempo = time(nullptr);
     string fecha_y_hora = ctime(&marca_tiempo);
@@ -205,7 +216,11 @@ int MainWindow::restar_fechas(const unsigned char* fecha_y_hora_anterior) {
     return totalSegundos;
 }
 
-
+/**
+ * @brief Method to query and display the value of a field in a QLineEdit.
+ * @param field The name of the field to query.
+ * @param lineEdit The QLineEdit where to display the value.
+*/
 void MainWindow::consultarValor(const QString &campo, QLineEdit *lineEdit)
 {
     QString consulta = QString("SELECT %1 FROM Mediciones WHERE id = :id AND id_sensor = :id_sensor").arg(campo);
@@ -242,6 +257,9 @@ void MainWindow::consultarValor(const QString &campo, QLineEdit *lineEdit)
     }
 }
 
+/**
+ * @brief Method to display initial data in the interface.
+*/
 void MainWindow::mostrarDatosIniciales()
 {
     for (int i = 0; i < 7; ++i) {
@@ -250,6 +268,3 @@ void MainWindow::mostrarDatosIniciales()
         consultarValor("promedio", lineEdits[i + 14]);
     }
 }
-
-
-//hola
