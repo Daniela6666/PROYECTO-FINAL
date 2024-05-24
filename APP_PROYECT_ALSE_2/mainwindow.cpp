@@ -113,7 +113,7 @@ void MainWindow::abrir_db()
         QString homeDir = QStandardPaths::writableLocation(QStandardPaths::HomeLocation);
 
         // Construir la ruta completa al archivo sensor.db
-        QString dbPath = homeDir + "/proyect_ALSE/PROYECTO-FINAL/app_consola/build/sensores.db";
+        QString dbPath = homeDir + "/PROYECTO-FINAL/app_consola/build/sensores.db";
 
         qDebug() << "Ruta de la base de datos:" << dbPath;
 
