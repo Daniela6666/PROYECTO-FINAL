@@ -74,7 +74,9 @@ MainWindow::MainWindow(QWidget *parent)
 
     id_sensor = 1;
 
-    mostrarDatosIniciales();
+    if (minutos > 0) {
+        mostrarDatosIniciales();
+    }
 }
 
 MainWindow::~MainWindow()
@@ -103,7 +105,14 @@ void MainWindow::tiempo()
 
 void MainWindow::abrir_db()
 {
-    QString dbPath = "/home/daniela/proyect_ALSE/PROYECTO-FINAL/app_consola/build/sensores.db";
+    // Obtener el directorio de inicio del usuario
+        QString homeDir = QStandardPaths::writableLocation(QStandardPaths::HomeLocation);
+
+        // Construir la ruta completa al archivo sensor.db
+        QString dbPath = homeDir + "/proyect_ALSE/PROYECTO-FINAL/app_consola/build/sensores.db";
+
+        qDebug() << "Ruta de la base de datos:" << dbPath;
+
 
         // Verifica si la conexión ya existe
         if (QSqlDatabase::contains(QSqlDatabase::defaultConnection)) {
@@ -210,7 +219,7 @@ void MainWindow::consultarValor(const QString &campo, QLineEdit *lineEdit)
     QString valor;
 
     if (consultar.exec()) {
-        qDebug() << "Se ha consultado correctamente.";
+        //qDebug() << "Se ha consultado correctamente.";
 
         if (consultar.next()) {  // Mover al primer (y en este caso único) resultado
             valor = consultar.value(0).toString();  // Obtener el valor del primer campo
@@ -227,7 +236,7 @@ void MainWindow::consultarValor(const QString &campo, QLineEdit *lineEdit)
     contador++;
     if (contador == 3) { // Si hemos actualizado todos los QLineEdit correspondientes al "mínimo"
         id += 1;
-        qDebug() << id;
+        //qDebug() << id;
         id_sensor += 1;
         contador = 0;
     }

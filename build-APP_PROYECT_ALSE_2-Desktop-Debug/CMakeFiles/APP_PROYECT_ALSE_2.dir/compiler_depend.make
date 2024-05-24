@@ -364,7 +364,17 @@ CMakeFiles/APP_PROYECT_ALSE_2.dir/APP_PROYECT_ALSE_2_autogen/mocs_compilation.cp
   /usr/include/c++/11/bits/ostream.tcc \
   /usr/include/c++/11/bits/istream.tcc \
   /usr/include/c++/11/bits/sstream.tcc \
-  /usr/include/c++/11/cstring
+  /usr/include/c++/11/cstring \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/QDir \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qdir.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qfileinfo.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qfile.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/QCoreApplication \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qcoreapplication.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qcoreevent.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qeventloop.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/QStandardPaths \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qstandardpaths.h
 
 CMakeFiles/APP_PROYECT_ALSE_2.dir/main.cpp.o: /home/sebastian/proyect_ALSE/PROYECTO-FINAL/APP_PROYECT_ALSE_2/main.cpp \
   /usr/include/stdc-predef.h \
@@ -729,11 +739,19 @@ CMakeFiles/APP_PROYECT_ALSE_2.dir/main.cpp.o: /home/sebastian/proyect_ALSE/PROYE
   /usr/include/c++/11/bits/istream.tcc \
   /usr/include/c++/11/bits/sstream.tcc \
   /usr/include/c++/11/cstring \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QApplication \
-  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qapplication.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/QDir \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qdir.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qfileinfo.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qfile.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/QCoreApplication \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qcoreapplication.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qcoreevent.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qeventloop.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/QStandardPaths \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qstandardpaths.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QApplication \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qapplication.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qcoreapplication.h \
   /usr/include/x86_64-linux-gnu/qt5/QtGui/qguiapplication.h \
   /usr/include/x86_64-linux-gnu/qt5/QtGui/qinputmethod.h
 
@@ -1100,14 +1118,22 @@ CMakeFiles/APP_PROYECT_ALSE_2.dir/mainwindow.cpp.o: /home/sebastian/proyect_ALSE
   /usr/include/c++/11/bits/istream.tcc \
   /usr/include/c++/11/bits/sstream.tcc \
   /usr/include/c++/11/cstring \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/QDir \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qdir.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qfileinfo.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qfile.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/QCoreApplication \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qcoreapplication.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qcoreevent.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qeventloop.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/QStandardPaths \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qstandardpaths.h \
   APP_PROYECT_ALSE_2_autogen/include/ui_mainwindow.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/QVariant \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qvariant.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QApplication \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qapplication.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qcoreapplication.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtCore/qcoreevent.h \
-  /usr/include/x86_64-linux-gnu/qt5/QtCore/qeventloop.h \
   /usr/include/x86_64-linux-gnu/qt5/QtGui/qguiapplication.h \
   /usr/include/x86_64-linux-gnu/qt5/QtGui/qinputmethod.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QGridLayout \
@@ -1164,11 +1190,19 @@ APP_PROYECT_ALSE_2_autogen/include/ui_mainwindow.h:
 
 /usr/include/x86_64-linux-gnu/qt5/QtGui/qguiapplication.h:
 
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qapplication.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qstandardpaths.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/QStandardPaths:
+
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qeventloop.h:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qcoreevent.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qapplication.h:
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qdir.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/QDir:
 
 /usr/include/c++/11/bits/istream.tcc:
 
@@ -1353,6 +1387,8 @@ APP_PROYECT_ALSE_2_autogen/include/ui_mainwindow.h:
 /usr/include/x86_64-linux-gnu/qt5/QtSql/QSqlDatabase:
 
 /usr/include/x86_64-linux-gnu/bits/cpu-set.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/QCoreApplication:
 
 /usr/include/c++/11/ratio:
 
@@ -1911,6 +1947,8 @@ APP_PROYECT_ALSE_2_autogen/EWIEGA46WW/moc_mainwindow.cpp:
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qstringalgorithms.h:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qalgorithms.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qfileinfo.h:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qstringview.h:
 

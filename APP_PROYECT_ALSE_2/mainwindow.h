@@ -15,6 +15,9 @@
 #include <sstream>
 #include <string>
 #include <cstring>
+#include <QDir>
+#include <QCoreApplication>
+#include <QStandardPaths>
 
 using namespace std;
 
